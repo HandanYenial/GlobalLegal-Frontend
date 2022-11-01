@@ -1,0 +1,11 @@
+.Navigation {
+    background-color: #adadad;
+  
+    font-size: x-large;
+    
+  }
+  
+  .nav-link.active {
+    font-weight: bold;
+    color: rgb(82, 135, 82);
+  }

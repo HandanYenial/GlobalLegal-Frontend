@@ -1,0 +1,51 @@
+.Homepage {
+
+    background-image:linear-gradient(black,#424243);
+  }
+  
+
+
+.hlink{
+    color: #494b49;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.secondC{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10%;
+}
+
+.hlink:hover{
+    color: #494b49;
+    text-decoration: underline;
+}
+
+.firstC{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10%;
+}
+
+.btn{
+    width: 50%;
+    height: 50px;
+    background-color: #494b49;
+    color: #fff;
+    border: solid black 2px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
