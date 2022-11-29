@@ -9,7 +9,7 @@
 
 import axios from "axios"; //importing axios to make the AJAX calls
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "https://globalb.onrender.com/"; //setting the base url
+const BASE_URL = process.env.REACT_APP_BASE_URL || "https://globalb.onrender.com"; //setting the base url
 
 
 class GlobalApi {
