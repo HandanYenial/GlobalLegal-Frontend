@@ -9,7 +9,7 @@
 
 import axios from "axios"; //importing axios to make the AJAX calls
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001"; //setting the base url
+const BASE_URL = process.env.REACT_APP_BASE_URL || "https://63af9c1db9047837c53e6d4a--vermillion-rolypoly-0648e6.netlify.app/"; //setting the base url
 
 
 class GlobalApi {
