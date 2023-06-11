@@ -3,7 +3,7 @@ import LawsuitCard from "./LawsuitCard";
 
 /**LawsuitCard List:
  * 1. Show list of lawsuit cards
- * 2. LawsuitCard List will be used by both LawsuitList and CategoryDeatil.
+ * 2. LawsuitCard List will be used by both LawsuitList and CategoryDetail.
  * 
  */
 
