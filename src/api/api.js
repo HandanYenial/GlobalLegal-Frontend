@@ -1,9 +1,9 @@
 /**The components in the front-end needs to talk with the back-end for data. As; in lawsuits page, to show details
  * about a lawsuit, we will need lawsuits model.
- * Instead of making AJAX calls in the components, we will use the api to get the data.For that we will have a GlobalApi
+ * Instead of making AJAX calls in the components,api was used to get the data.For that we will have a GlobalApi
  * class. The class will have methods to get the data.
- * In the backend we had classes and static methods tp get the data from the database.
- * This will be similar to the way we have done in the backend.
+ * In the backend there was classes and static methods to get the data from the database.
+ * This will be similar
  */
 
 
