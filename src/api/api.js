@@ -31,9 +31,9 @@ class GlobalApi {
     try {
       return (await axios({ url, method, data, params, headers })).data; //returning the data from the API call
     } catch (err) {
-      console.error("API Error:", err.response); //if there is an error, print it to the console
-      let message = err.response.data.error.message; //get the error message from the response
-      throw Array.isArray(message) ? message : [message]; //if the message is an array, throw it, otherwise throw an array with one element.
+      console.error("API Error:", err.response);         //if there is an error, print it to the console
+      let message = err.response.data.error.message;       //get the error message from the response
+      throw Array.isArray(message) ? message : [message];      //if the message is an array, throw it, otherwise throw an array with one element.
     }
   }
 
@@ -44,6 +44,7 @@ class GlobalApi {
     let res = await this.request(`users`);
     return res.users;
   }
+  
   //Get a user by username
   static async getCurrentUser(username){
     let res = await this.request(`users/${username}`);
@@ -89,45 +90,45 @@ class GlobalApi {
     let res = await this.request(`categories/${handle}` , {...categoryData}, "patch");
     return res.category;
   }
-  //add category 
+  //Add category 
   static async postCategory(data){
     let res = await this.request(`categories`, data, "post");
     return res.category;
   }
-  //delete category by handle
+  //Delete category by handle
   static async deleteCategory(handle){
     let res = await this.request(`categories/${handle}`, {}, "delete");
     return res.category;
   }
 
-  //get all lawsuits
+  //Get all lawsuits
   static async getLawsuits(title){
     let res = await this.request('lawsuits' , {title});
     return res.lawsuits;
   }
 
-  //update a lawsuit by id:
+  //Update a lawsuit by id:
   static async updateLawsuit(id, lawsuitData){
     let res = await this.request(`lawsuits/${id}` , {...lawsuitData}, "patch");
     return res.lawsuit;
   }
-  //add a lawsuit
+  //Add a lawsuit
   static async addLawsuit(data){
     let res = await this.request(`lawsuits`, data, "post");
     return res.lawsuit;
   }
-  //delete a lawsuit by id
+  //Delete a lawsuit by id
   static async deleteLawsuit(id){
     let res = await this.request(`lawsuits/${id}`, {}, "delete");
     return res.lawsuit;
   }
 
-  //add a lawsuit to a user by username
+  //Add a lawsuit to a user by username
   static async addLawsuitToUser(username, lawsuitId){
     let res = await this.request(`users/${username}/lawsuits/${lawsuitId}`, {}, "post");
     return res.lawsuit;
   }
-  //remove a lawsuit from a user by username
+  //Remove a lawsuit from a user by username
   static async removeLawsuitFromUser(username, lawsuitId){
     let res = await this.request(`users/${username}/lawsuits/${lawsuitId}`, {}, "delete");
     return res.lawsuit;
@@ -137,7 +138,6 @@ class GlobalApi {
    // let res = await this.request(`users/${username}/lawsuits`);
    // return res.lawsuits;
   //}
-
 }
 
   export default GlobalApi;
