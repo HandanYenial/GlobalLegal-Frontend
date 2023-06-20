@@ -15,39 +15,42 @@ import {
 from 'mdb-react-ui-kit';
 
 /**Login form for user login:
- * 1.Show the login form.
- * 2.Handle form submission.
- * 3.Show the login error message.
- * 4.Show the login success message.
- * 5.Redirect to categories page if the login is successful.
+ * 1. Show the log in form.
+ * 2. Handle form submission.
+ * 3. Show the login error message.
+ * 4. Show the login success message.
+ * 5. Redirect to the categories page if the login is successful.
  */
 
  function LoginForm({ login }){ 
-    const history = useHistory(); //useHistory is a react hook that is used to navigate to different pages.
-    const [formData , setFormData] = useState({ username:"" , password:"" }); //useState is a react hook that is used to manage 
-                                     //the state of the component.username and password fields will be empty initially.
-    const [formErrors, setFormErrors] = useState([]);//error messages array will be empty initially.and we will push the error messages to this array.
-    const { setCurrentUser } = useContext(UserContext);//get current user from context
+    const history = useHistory();     //useHistory is a react hook that is used to navigate to different pages.
+    const [formData , setFormData] = useState({ username:"" , password:"" });      //useState is a react hook that is used to manage 
+                                                                                  //the state of the component.username and password fields will be empty initially.
+    const [formErrors, setFormErrors] = useState([]);           //error messages array will be empty initially.and we will push the error messages to this array.
+    const { setCurrentUser } = useContext(UserContext);        //get current user from context
+   
     //console.debug is a function that is used to debug the code.
     console.debug("Loginform",
                   "login=" , typeof login,
                   "formData=", formData,
                   "formErrors=", formErrors);
 
-    //handle form submission. when user submits the form, this function will be called.
+    //handle form submission. when a user submits the form, this function will be called.
+   
     async function handleSubmit(evt){
       console.log("handleSubmit");
-        evt.preventDefault(); //It prevents a link from following the URL so that the browser can't go another page
+        evt.preventDefault();            //It prevents a link from following the URL so that the browser can't go another page
         let result = await login(formData); //call the login function and wait for the result.
         if (result.success){
           setCurrentUser({username:formData.username, password: formData.password});
             history.push("/categories"); //if the login is successful, redirect to the categories page.
         } else {
-            setFormErrors(result.errors); //if the login is not successful, set the form errors to the result.errors array.
+            setFormErrors(result.errors);        //if the login is not successful, set the form errors to the result.errors array.
         }
     }
 
-    //handle form change. when user changes the value of the form, this function will be called.
+    //handle form change. when the user changes the value of the form, this function will be called.
+   
     function handleChange(evt){
         const { name, value } = evt.target;
         setFormData(form => ({ ...form, [name]: value})); //set the form data to the form data with the new value.
