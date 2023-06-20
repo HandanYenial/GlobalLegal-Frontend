@@ -5,8 +5,6 @@ import { useHistory } from 'react-router-dom';
 import Alert from '../common/Alert';
 import './RegisterForm.css';
 
-
-
 /**register form for new user
  * 1. Show the register form(username, password,firstname,lastname,email)
  * 2. Handle the register form submission
@@ -14,14 +12,14 @@ import './RegisterForm.css';
  */
 
 function RegisterForm({ register }) {
-    const history = useHistory(); //useHistory is a react hook that is used to navigate to different pages.
+    const history = useHistory();    //useHistory is a react hook that is used to navigate to different pages.
     const [formData , setFormData] = useState({username:"" ,
                                                password:"", 
                                                firstName:"", 
                                                lastName:"", 
-                                               email:""}); //useState is a react hook that 
-                                     //is used to manage the state of the component.Username, password, firstname, lastname, email fields will be empty initially.
-    const [formErrors, setFormErrors] = useState([]);//error messages array will be empty initially.and we will push the error messages to this array.
+                                               email:""});   //useState is a react hook that is used to manage the state of the component.Username, password, firstname, lastname, email fields will be empty initially.
+   
+    const [formErrors, setFormErrors] = useState([]);    //error messages array will be empty initially. and we will push the error messages to this array.
 
     console.debug("RegisterForm",
                   "register=" , typeof register,
@@ -29,6 +27,7 @@ function RegisterForm({ register }) {
                   "formErrors=", formErrors);
 
     //handle form submission. when user submits the form, this function will be called.
+    
     async function handleSubmit(evt){
         evt.preventDefault(); //It prevents a link from following the URL so that the browser can't go another page
         let result = await register(formData); //call the register function and wait for the result.
@@ -40,6 +39,7 @@ function RegisterForm({ register }) {
     }
 
     //handle form change. when user changes the value of the form, this function will be called.
+    
     function handleChange(evt){
         const { name, value } = evt.target;
         setFormData(form => ({ ...form, [name]: value})); //set the form data to the form data with the new value.
@@ -47,8 +47,6 @@ function RegisterForm({ register }) {
 
     //render the register form.
   return (
-  
-   
     <div className="RegisterForm">
     <div className="container col-md-6 offset-md-3 col-lg-4 offset-lg-4" >
      
