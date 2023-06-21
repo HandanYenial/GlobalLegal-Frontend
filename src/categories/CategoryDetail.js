@@ -6,7 +6,7 @@ import GlobalApi from "../api/api";
 import LawsuitCardList from "../lawsuits/LawsuitCardList";
 import LoadingSpinner from "../common/LoadingSpinner";
 
-/**1.Show deatils of a Category
+/**1. Show details of a Category
  * 2. CategoryDetail will be rendered by CategoryList to show a card for each Category.
  * 3. CategoryCard ---> CategoryDetail ---> CategoryCardList
  * 4. CategoryDetail renders LoadingSpinner while data is loading.
@@ -14,10 +14,10 @@ import LoadingSpinner from "../common/LoadingSpinner";
  */
 
 function CategoryDetail(){
-    const { handle } = useParams(); //handle is the handle of the category
+    const { handle } = useParams();    //handle is the handle of the category
     console.debug("CategoryDetail" , "handle=" , handle);
 
-    const [category , setCategory] = useState(null); //initial state of category is null
+    const [category , setCategory] = useState(null);    //initial state of category is null
     useEffect(
         function getCategoryAndLawsuitsForUser(){
             async function getCategory(){
