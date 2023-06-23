@@ -5,17 +5,14 @@ import CategoryCard from "./CategoryCard";
 import LoadingSpinner from "../common/LoadingSpinner";
 
 
-/** Show page with list of companies.
- *
+/** Show page with a list of companies.
  * On mount, loads companies from API.
- * Re-loads filtered companies on submit from search form.
- *
+ * Re-loads filtered companies on submit from the search form.
  * This is routed to at /companies
- *
- * Routes -> { CompanyCard, SearchForm }
+ * Routes --- { CompanyCard, SearchForm }
  */
 
-function CategoryList() { //list of categories
+function CategoryList() {         //list of categories
   console.debug("CategoryList"); //debugging
 
   const [categories, setCategories] = useState(null); 
@@ -26,9 +23,10 @@ function CategoryList() { //list of categories
   }, []);
 
   /** Triggered by search form submit; reloads categories. */
-  async function search(name) { //search for categories by name
-    let categories = await GlobalApi.getCategories(name); //get categories from api
-    setCategories(categories); //set categories
+  
+  async function search(name) {        //search for categories by name
+    let categories = await GlobalApi.getCategories(name);    //get categories from api
+    setCategories(categories);   //set categories
   }
 
   if (!categories) return <LoadingSpinner />;
