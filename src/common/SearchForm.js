@@ -3,8 +3,7 @@ import { useState } from "react";
 import "./SearchForm.css";
 
 /**SearchForm 
- * 1. Search form will be used both in LawsuitList and CategoryList.
- * 2. 
+ * 1. The search form will be used both in LawsuitList and CategoryList.
  */
 
 function SearchForm({ searchFor }){
@@ -13,9 +12,9 @@ function SearchForm({ searchFor }){
     const [searchTerm , setSearchTerm] = useState("");
 
     //To filter
-    function handleSubmit(evt){ //take care of accidentally searching for empty string
-        evt.preventDefault(); //prevent default action of form submit
-        searchFor(searchTerm.trim() || undefined); //trim(): remove white space from both ends of the string
+    function handleSubmit(evt){     //take care of accidentally searching for empty string
+        evt.preventDefault();      //prevent default action of form submit
+        searchFor(searchTerm.trim() || undefined);   //trim(): remove white space from both ends of the string
         setSearchTerm(searchTerm.trim());
     }
 
