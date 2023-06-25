@@ -8,23 +8,19 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import ListGroup from 'react-bootstrap/ListGroup'; 
 
-
-
-
 /**Homepage of the site: Routed at "/"
  * 1. Displays a welcome message to the user
  * 2. Displays login and register buttons
- * 3. Shows a link to profile page if the user is logged in
+ * 3. Shows a link to the profile page if the user is logged in
  * 4. Shows a link to the categories page if the user is logged in
- * 5. Shows link to lawsuit page if the user logged in
- * 6. 
+ * 5. Shows link to lawsuit page if the user logged in 
  */
 
 function Homepage(){
-    const { currentUser } = useContext(UserContext); ////get the current user from context
-    //“useContext” hook is used to create common data that can be accessed throughout the 
-    //component hierarchy without passing the props down manually to each level. 
-    //Context defined will be available to all the child components without involving “props”.
+    const { currentUser } = useContext(UserContext);      //get the current user from context
+                                                         //“useContext” hook is used to create common data that can be accessed throughout the 
+                                                        //component hierarchy without passing the props down manually to each level. 
+                                                       //Context defined will be available to all the child components without involving “props”.
 
     console.debug("Homepage", "currentUser=" , currentUser);
 
@@ -36,7 +32,7 @@ function Homepage(){
                 </div>
                 <h1 className = "mb-4 font-weight-bold" style={{color:'white' , fontSize:'500%'}}> 
                 Global <img src = "https://theplayingfieldproject.org/wp-content/uploads/2020/11/Scale-4-1.gif" alt = "logo" 
-                style={{width:"10%" , height:"10%"}}/> Legal 
+                style={{width:"10%", height:"10%"}}/> Legal 
                 </h1>
                 <p className = "lead" style={{fontSize:'200%',color:'#fcf33f' ,margin:'2%'}}> Creative solutions for legal problems. </p>
                 {currentUser ?  (<h2 style={{color:'grey'}}> Welcome back {currentUser.firstName || currentUser.username}!</h2>)
@@ -113,9 +109,7 @@ function Homepage(){
                                 <a href= "https://www.uscis.gov/newsroom/alerts/new-stem-resources-available-on-uscis-website"> USCIS </a>
                                 </div>   
                             </ListGroup.Item>
-
                         </ListGroup>
-                   
                 </div> 
             </Col>
         </Row>
