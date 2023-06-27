@@ -7,7 +7,6 @@ import UserContext from "../auth/UserContext";
  * 1. Displays the lawsuit details
  * 2. LawsuitCardList will render the LawsuitCard component
  * 3. LawsuitCardList ----> LawsuitCard
- * 
 */
 
 function LawsuitCard({id, title , description , comment , location , categoryName , created_at, updated_at}){
