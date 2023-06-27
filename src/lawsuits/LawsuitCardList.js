@@ -2,9 +2,8 @@ import React from "react";
 import LawsuitCard from "./LawsuitCard";
 
 /**LawsuitCard List:
- * 1. Show list of lawsuit cards
- * 2. LawsuitCard List will be used by both LawsuitList and CategoryDetail.
- * 
+ * 1. Show a list of lawsuit cards
+ * 2. LawsuitCard List will be used by both LawsuitList and CategoryDetail
  */
 
 function LawsuitCardList({ lawsuits , add }){
