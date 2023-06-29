@@ -5,14 +5,14 @@ import Alert from "../common/Alert";
 import UserContext from "../auth/UserContext";
 //import useTimedMessage from "../hooks/useTimedMessage";
 
-/**Userprofile form: for editing
+/**User profile form: for editing
  * 1. Routed at /profile
  * 2. User can edit their profile
- * 3. Displays profile form, handles chnages and submits form
+ * 3. Displays profile form, handles changes and submits the form
  */
 
 function ProfileForm(){
-    const { currentUser , setCurrentUser } = useContext(UserContext);//get current user from context
+    const { currentUser , setCurrentUser } = useContext(UserContext);   //get current user from context
     const [formData , setFormData] = useState({
         username: currentUser.username,
         firstName : currentUser.firstName,
@@ -31,8 +31,8 @@ function ProfileForm(){
         "formErrors=", formErrors,
         "saveConfirmed=", saveConfirmed,
     );
-    //on form submit: try to save in backend and report any errors
-    //if successful: clear previous error messages and password, show confirmation message
+    //on form submit: try to save in the backend and report any errors
+    //if successful: clear previous error messages and password, show the confirmation message
     //and set current user data throughout the site
 
     async function handleSubmit(evt){
@@ -70,7 +70,6 @@ function ProfileForm(){
         setFormData(f => ({...f, [name]:value}));
         setFormErrors([]);
     }
-
 
     return(
         <div className = "col-md-6 col-lg-4 offset-md-3 offset-lg-4">
