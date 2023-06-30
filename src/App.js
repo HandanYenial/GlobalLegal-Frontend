@@ -10,9 +10,8 @@ import GlobalApi from "./api/api";
 import UserContext from "./auth/UserContext";
 import jwt from "jsonwebtoken";
 
-//Key name for storing token in localStorage for remember me re-login
+//Key name for storing the token in localStorage for remember me re-login
 export const TOKEN_STORAGE_ID = "global-token";
-
 
 function App() {
     const [infoLoaded, setInfoLoaded] = useState(false); //infoLoaded is a boolean variable
@@ -24,8 +23,8 @@ function App() {
 
 
   // Load user info from API. Until a user is logged in and they have a token,
-  // this should not run. It only needs to re-run when a user logs out, so
-  // the value of the token is a dependency for this effect.
+  //This should not run. It only needs to re-run when a user logs out, so
+  //The value of the token is a dependency for this effect.
 
   useEffect(function loadUserInfo() {
     console.debug("App useEffect loadUserInfo" , "token=", token);
@@ -36,9 +35,9 @@ function App() {
           let { username } = jwt.decode(token); //decode token
           //put the token on the Api class so it can use it to call the API
           GlobalApi.token = token;
-          let currentUser = await GlobalApi.getCurrentUser(username); //get current user
+          let currentUser = await GlobalApi.getCurrentUser(username);   //get current user
           setCurrentUser(currentUser);
-          setAssignmentIds(new Set(currentUser.assignments)); //set assignmentIds
+          setAssignmentIds(new Set(currentUser.assignments));   //set assignmentIds
         } catch(err) {
           console.error("App loadUserInfo: problem loading", err);
           setCurrentUser(null); //set current user to null
@@ -54,6 +53,7 @@ function App() {
   } , [token]);
 
   //Handles site-wide logout
+    
   function logout(){
     setCurrentUser(null);
     setToken(null);
@@ -87,11 +87,13 @@ function App() {
   }
 
   //Checks if a lawsuit is assigned to any other user
+    
   function hasAddedLawsuit(id){
     return assignmentIds.has(id);
   }
 
   //Adds a lawsuit to the user's list of assigned lawsuits
+    
   function addLawsuit(id){
     if(hasAddedLawsuit(id)){
       return;
